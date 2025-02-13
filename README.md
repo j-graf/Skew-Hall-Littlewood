@@ -10,7 +10,7 @@ Then, you may run individual lines or blocks of code. The file [conjecture_verif
 
 # Examples
 
-## Schur's $Q$-function Basics
+## Hall-Littlewood Function Basics
 
 1. Compute $\ell(\lambda)$ and $|\lambda|$, where $\lambda=(6,5,2)$:
 ```
