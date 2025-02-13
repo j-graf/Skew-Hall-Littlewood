@@ -243,6 +243,9 @@ TtoxT = T -> (
 
 -- computes Q_{lam/mu} in the number of variables (at least #lam) [Macdonald p.229]
 skewQ = (lam,mu,numVars) -> (
+    if (lam != rsort lam or mu != rsort mu) then (
+        error("skewQ error: lam, mu must be partitions");
+        );
     if (unique lam == {0} or lam == {}) and (unique mu == {0} or mu == {}) then return 1;
     if #mu > #lam then return (0);
     for i from 0 to #mu-1 do (
