@@ -6,7 +6,7 @@ Computes skew Hall-Littlewood functions.
 
 We recommend the [online Macaulay2 editor](https://www.unimelb-macaulay2.cloud.edu.au/#editor).
 First, run all of the code in the file [skew_hall-littlewood.m2](https://github.com/j-graf/Skew-Hall-Littlewood/blob/main/skew_hall-littlewood.m2) (you may copy-paste the contents into the editor on the left, then click the orange "Run all editor code" button).
-Then, you may run individual lines or blocks of code.
+Then, you may run individual lines or blocks of code. The file [conjecture_verification.m2](https://github.com/j-graf/Skew-Hall-Littlewood/blob/main/conjecture_verification.m2) contains code to verify the conjectured formulas for skew Hall-Littlewood functions.
 
 # Examples
 
