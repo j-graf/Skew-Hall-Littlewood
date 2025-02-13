@@ -48,7 +48,7 @@ skewQ({4,2},{3},2) == (-t+1)*Qlam({3},2)+(1)*Qlam({2, 1},2)
 
 ## Semistandard Young Tableaux
 
-6. Generate a list of all semistandard Young tableaux (SSYT) of shape $(6,5,2)-(3,1)$, with maximum entry $3$, printing five of them, and counting the number of SSYT:
+6. Generate a list of all semistandard Young tableaux (SSYT) of shape $(6,5,2)-(3,1)$ with maximum entry $3$, printing five of them, and counting the number of SSYT:
 ```
 theList = genAllSSYT({6,5,2},{3,1},3)
 for i from 0 to 4 do(
