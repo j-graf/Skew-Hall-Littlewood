@@ -1,6 +1,6 @@
 # Skew-Hall-Littlewood
 
-Computes skew Hall-Littlewood functions in the variables $x_1,x_2,\ldots,x_n$. Computes the decomposition of $Q_{\lambda/\mu}$ as a linear combination of $Q_\nu$'s.
+Computes skew Hall-Littlewood functions in the variables $x_1,x_2,\ldots,x_n$. Computes the decomposition of $Q_{\lambda/\mu}$ as a linear combination of the basis element $Q_\nu$'s.
 
 # How to Use
 
