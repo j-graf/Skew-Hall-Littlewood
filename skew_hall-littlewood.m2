@@ -491,7 +491,7 @@ decomposeSkew = {doPrint => true} >> o -> (lam,mu) -> (
         
         -- prints decomposition into m2 functions
         print("\n");
-        print(decompToM2(ans));
+        print(decompToM2(ans),numVars);
         
         if #lam <= 3 then (
             return(decompToPretty(ans));
@@ -510,8 +510,8 @@ decompToTex = (theDecomp) -> (
     )
 
 -- returns decomp as string of M2 code
-decompToM2 = (theDecomp) -> (
-    replace("\\+$","",concatenate(for theTerm in theDecomp list ("("|toString(theTerm#1)|")*Qlam("|toString(theTerm#0)|","|toString(#lam)|")+")))
+decompToM2 = (theDecomp,num) -> (
+    replace("\\+$","",concatenate(for theTerm in theDecomp list ("("|toString(theTerm#1)|")*Qlam("|toString(theTerm#0)|","|toString(num)|")+")))
     )
 
 -- returns decomp as element of S
