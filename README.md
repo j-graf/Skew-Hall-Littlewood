@@ -57,3 +57,71 @@ for i from 0 to 4 do(
     )
 #theList
 ```
+
+## Skew Conjecture Verification
+
+7. Verify formula1 where $1\leq|\lambda|\leq7$:
+```
+for wt from 1 to 7 do (
+    print(wt);
+    partitionList = partitions wt;
+    for thePartition in partitionList do (
+        for k from 0 to thePartition#0+1 do (
+            print(skewQ(toList thePartition,{k},#thePartition) == skewFormula1(toList thePartition,{k},#thePartition));
+            );
+        );
+    )
+```
+
+8. Verify formula1 where $8\leq|\lambda|\leq10,~\ell(\lambda)\leq3$:
+```
+for wt from 8 to 10 do (
+    print(wt);
+    partitionList = for thePartition in partitions(wt,3) list conjugate thePartition;
+    for thePartition in partitionList do (
+        for k from 0 to thePartition#0+1 do (
+            print(skewQ(toList thePartition,{k},#thePartition) == skewFormula1(toList thePartition,{k},#thePartition));
+            );
+        );
+    )
+```
+
+9. Verify formula2 where $1\leq|\lambda|\leq7,~ 0\leq|\mu|\leq|\lambda|+1,~\mu_1\leq\lambda_1+1$:
+```
+-- occasionally times out once |lam|>=7
+for lam1 from 1 to 7 do (
+    -- print(lam1);
+    for lam2 from 0 to lam1 do (
+        for mu1 from 0 to lam1+1 do (
+            for mu2 from 0 to mu1 do (
+                print(lam1,lam2,mu1,mu2);
+                print(skewQ({lam1,lam2},{mu1,mu2},2)==skewFormula2({lam1,lam2},{mu1,mu2},2));
+                );
+            );
+        );
+    )
+```
+
+10. Verify formula3 where $1\leq|\lambda|\leq6,~\ell(\lambda)\leq5$:
+```
+for wt from 1 to 8 do (
+    print(wt);
+    partitionList = for thePartition in partitions(wt,6) list conjugate thePartition;
+    for thePartition in partitionList do (
+        for m from 1 to #thePartition do (
+            print(skewQ(toList thePartition,for k from 1 to m list (1),#thePartition) == skewFormula3(toList thePartition,for k from 1 to m list (1),#thePartition));
+            );
+        );
+    )
+```
+
+11. Verify formula4 where $2\leq k,~m\leq 8$:
+```
+for k from 2 to 8 do (
+    print("k=" | toString(k));
+    for m from 2 to 8 do (
+        -- print("m=" | toString(m));
+        print(skewQ(toList(m:k),{2,1},m)==skewFormula4(toList(m:k),{2,1},m));
+        )
+    )
+```
