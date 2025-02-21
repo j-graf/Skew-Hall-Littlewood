@@ -4,17 +4,27 @@
 
 restart
 
-n=20
-maxWt=48 --max ~50
+largestIndex = 20
+maxWt = 48 --max ~50
 
 S = QQ[t][for thePart in rsort join(for i from 0 to maxWt list toSequence({i}),flatten for i from 0 to maxWt list for j from 1 to min(i,maxWt-i) list (i,j),flatten flatten for i from 0 to maxWt list for j from 1 to min(i,maxWt-i) list for k from 1 to min(j,maxWt-i-j) list (i,j,k)) list (
         if #thePart == 1 then (Q_(thePart#0))
         else if #thePart == 2 then (Q_(thePart#0,thePart#1))
         else if #thePart == 3 then (Q_(thePart#0,thePart#1,thePart#2))
         )]
-R = QQ[t][x_1..x_n]
+R = QQ[t][x_1..x_largestIndex]
 
 needsPackage "SpechtModule"
+
+protect symbol x
+protect symbol Q
+protect symbol R
+protect symbol S
+protect symbol largestIndex
+protect symbol maxWt
+
+
+---------- SSYT
 
 -- tableau T is equiv to sequence of partitions
 -- returns list of partitions mu=lam^0,lam^1,...,lam^r=lam (mu is the shape made by 0s)
@@ -233,6 +243,8 @@ genAllSSYT = (lam,mu,maxEntry) -> (
     
     ans
     )
+
+---------- Hall-Littlewood functions
 
 -- returns the monomial x^T, where T is a tableau
 TtoxT = T -> (
@@ -491,7 +503,7 @@ decomposeSkew = {doPrint => true} >> o -> (lam,mu) -> (
         
         -- prints decomposition into m2 functions
         print("\n");
-        print(decompToM2(ans),numVars);
+        print(decompToM2(ans,numVars));
         
         if #lam <= 3 then (
             return(decompToPretty(ans));
